@@ -7,7 +7,12 @@
     "socket.io": "^1.7.3"
   },
   "scripts": {
-    "start": "node index.js",
-    "test": "node index.js & pid=$!; cypress run; kill -9 $pid"
+    "start": "node mocksocket.js",
+    "cypress": "cypress",
+    "test": "node mocksocket.js & pid=$!; npm run cypress run; kill -9 $pid",
+    "open": "node mocksocket.js & pid=$!; npm run cypress open; kill -9 $pid"
+  },
+  "devDependencies": {
+    "cypress": "^3.2.0"
   }
 }
