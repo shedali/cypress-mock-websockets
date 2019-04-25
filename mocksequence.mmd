@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant ui as Cypress UI
+    participant stubs as Cypress Stubs
+    participant mocksocket as Mock Websocket Server
+    ui ->> stubs: request session id ✓
+    stubs ->> ui: stubbed session id ✓
+    ui ->> stubs: verify token
+    stubs ->> ui: emulate  auth
+    note left of stubs: websocket upgrade
+    ui -->> mocksocket: fetch mockdata with id 'modal' ✓
+    mocksocket -->> ui: send modal stub data ✓
+    ui -->> ui: open modal
